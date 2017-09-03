@@ -16,10 +16,10 @@ bmi = np_weight / np_height ** 2
 print(bmi)
 
 # For a boolean response
-print bmi > 24
+print(bmi > 24)
 
 # Print only those observations above 23
-print bmi[bmi > 24]
+print(bmi[bmi > 24])
 
 
 # ***** exercise
@@ -40,4 +40,4 @@ np_weight = np.array(weight_kg)
 np_pounds = np_weight * 2.2
 
 # Print out np_weight_lbs
-print np_pounds
+print(np_pounds)
