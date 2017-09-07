@@ -3,6 +3,7 @@ import unittest
 from coursera.graphs.acyclicity import solve_acyclic
 from coursera.graphs.bipartite import solve_bipartite
 from coursera.graphs.connected_components import solve_cc
+from coursera.graphs.connecting_points import solve_minimum_distance
 from coursera.graphs.negative_cycle import solve_negative_cycle
 from coursera.graphs.reachability import solve_reach
 from coursera.graphs.shortest_paths import solve_shortest
@@ -10,6 +11,8 @@ from coursera.graphs.toposort import solve_toposort
 from coursera.graphs.strongly_connected import solve_number_of_scc
 from coursera.graphs.bfs import solve_distance
 from coursera.graphs.dijkstra import solve_dijkstra
+
+from src.main.python.coursera.graphs.clustering import solve_clustering
 
 
 class TestGraphMethods(unittest.TestCase):
@@ -76,6 +79,14 @@ class TestGraphMethods(unittest.TestCase):
                          "0\n10\n-\n-\n-\n*\n")
         self.assertEqual(solve_shortest("5 4 1 2 1 4 1 2 2 3 2 3 1 -5 4"),
                          "-\n-\n-\n0\n*\n")
+
+    def test_clustering(self):
+        self.assertAlmostEqual(solve_clustering("12 7 6 4 3 5 1 1 7 2 7 5 7 3 3 7 8 2 8 4 4 6 7 2 6 3"), 2.828427124746)
+        self.assertAlmostEqual(solve_clustering("8 3 1 1 2 4 6 9 8 9 9 8 9 3 11 4 12 4"), 5.000000000)
+
+    def test_connecting_points(self):
+        self.assertAlmostEqual(solve_minimum_distance("4 0 0 0 1 1 0 1 1"), 3.0)
+        self.assertAlmostEqual(solve_minimum_distance("5 0 0 0 2 1 1 3 0 3 2"), 7.064495102)
 
 if __name__ == '__main__':
     unittest.main()
