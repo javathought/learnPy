@@ -1,8 +1,9 @@
 import unittest
 
+from mdf.fibrecut import solve_fibrecut
 from mdf.pieces import solve_coins
 from mdf.pseudoxml import maxbalise
-from mdf.word_distance import distance
+#from mdf.word_distance import distance
 
 
 class TestMdfMethods(unittest.TestCase):
@@ -46,16 +47,25 @@ class TestMdfMethods(unittest.TestCase):
                                    "-ce-e-h-s-v-g-qw-w-a-zyhm-meos-sa-a-opzo-o-zj-j-pbfvn-nv-v-ve-e-f-bk-k-e-hoby-y-bsz"
                                    "v-v-z-s-o-y-rsw-wv-v-s-afi-iyid-d-i-y-f-a-k-cj-jf-fkn-n-k"), 'c')
 
-    def test_distance(self):
-        self.assertEqual(distance("arbre","arbore"), 2)
-        self.assertEqual(distance("globe","lobe"), 2)
-        self.assertEqual(distance("barbe","barre"), 3)
-        self.assertEqual(distance("orbe","robe"), 3)
-        self.assertEqual(distance("algorithme","logarithme"), 7)
-        self.assertEqual(distance("algorithme","rythme"), 11)
+    # def test_distance(self):
+    #     self.assertEqual(distance("arbre","arbore"), 2)
+    #     self.assertEqual(distance("globe","lobe"), 2)
+    #     self.assertEqual(distance("barbe","barre"), 3)
+    #     self.assertEqual(distance("orbe","robe"), 3)
+    #     self.assertEqual(distance("algorithme","logarithme"), 7)
+    #     self.assertEqual(distance("algorithme","rythme"), 11)
+
+#    def test_fibre(self):
+#        self.assertEqual( "4; 0 0; 0 1; 1 0; 1 1", 3)
 
     def test_fibre(self):
-        self.assertEqual( "4; 0 0; 0 1; 1 0; 1 1", 3)
+        self.assertEqual( solve_fibrecut("7 0 2 1 2 2 3 3 4 4 5 3 6"), 3)
+        self.assertEqual( solve_fibrecut("3 0 1 1 2"), 1)
+        self.assertEqual( solve_fibrecut("5 0 1 1 2 2 3 3 4"), 2)
+        self.assertEqual( solve_fibrecut("50 0 1 0 2 1 3 2 4 1 5 2 6 5 7 7 8 2 9 1 10 10 11 3 12 2 13 1 14"
+                                         " 12 15 2 16 7 17 0 18 6 19 13 20 20 21 7 22 3 23 17 24 19 25 1 26 "
+                                         "25 27 14 28 20 29 2 30 1 31 1 32 13 33 19 34 21 35 24 36 36 37 15 38"
+                                         " 26 39 9 40 22 41 27 42 23 43 30 44 34 45 18 46 40 47 10 48 21 49 10 50"), 25)
 
 if __name__ == '__main__':
     unittest.main()
