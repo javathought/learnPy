@@ -45,7 +45,4 @@ else:
 
 
 for i in range(n):
-    s = ""
-    for j in range(n):
-        s += t[i][j]
-    print(s)
+    print("".join(t[i]))
