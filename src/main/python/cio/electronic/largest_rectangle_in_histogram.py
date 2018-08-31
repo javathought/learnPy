@@ -1,5 +1,6 @@
 def largest_histogram(histogram):
     s = [[0 for x in range(max(histogram))] for y in range(len(histogram))]
+    max_surface = 0
 
     for i in range(0, len(histogram)):
         for h in range(0, histogram[i]):
@@ -7,8 +8,10 @@ def largest_histogram(histogram):
                 s[i][h] = s[i-1][h] + h+1
             else:
                 s[i][h] = h+1
+            if s[i][h] > max_surface :
+                max_surface = s[i][h]
 
-    return max(map(max,s))
+    return max_surface
 
 
 if __name__ == "__main__":
