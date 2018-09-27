@@ -3,8 +3,12 @@ from datetime import datetime
 
 def date_time(time: str) -> str:
     dt = datetime.strptime(time, '%d.%m.%Y %H:%M')
+    # univesal solution
     return dt.strftime(f'%d %B %Y year %H hour{(dt.hour != 1)*"s"} %M minute{(dt.minute != 1)*"s"}').lstrip("0").replace(" 0", " ")
-
+    # on linux  
+    # return dt.strftime(f'%-d %B %Y year %-H hour{(dt.hour != 1)*"s"} %-M minute{(dt.minute != 1)*"s"}')
+    # on windows
+    # return dt.strftime(f'%#d %B %Y year %#H hour{(dt.hour != 1)*"s"} %#M minute{(dt.minute != 1)*"s"}')
 
 if __name__ == '__main__':
     print("Example:")
