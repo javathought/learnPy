@@ -4,6 +4,8 @@ from mdf.pieces import solve_coins
 from mdf.pseudoxml import maxbalise
 from mdf.word_distance import distance
 
+from mdf.interets import interets
+
 
 class TestMdfMethods(unittest.TestCase):
 
@@ -56,6 +58,11 @@ class TestMdfMethods(unittest.TestCase):
 
     def test_fibre(self):
         self.assertEqual( "4; 0 0; 0 1; 1 0; 1 1", 3)
+
+    def test_interets(self):
+        lines = ["4", "0", "-10", "-10","-10","-10"]
+        self.assertEqual( interets(lines), 17)
+
 
 if __name__ == '__main__':
     unittest.main()
