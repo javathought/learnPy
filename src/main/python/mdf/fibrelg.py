@@ -17,6 +17,7 @@ def findclosest(g, list_ord):
 def distance(a,b):
     return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
+
 if __name__ == '__main__':
 
     nb_ords = int(input())
