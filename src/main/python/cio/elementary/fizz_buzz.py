@@ -21,6 +21,7 @@ def checkio(number: int) -> str:
 # Some hints:
 # Convert a number in the string with str(n)
 
+
 # These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
     assert checkio(15) == "Fizz Buzz", "15 is divisible by 3 and 5"
